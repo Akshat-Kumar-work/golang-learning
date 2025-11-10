@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // struct are similar to class
 type Person struct {
@@ -10,13 +12,24 @@ type Person struct {
 }
 
 // receiver type (value receiver) means struct are pass by value by default
+// connecting function with our struct or we can say making this function as property of our struct
 func (P Person) changeGender(gender string) {
 	P.gender = gender
 }
 
-// pass by reference
+// pass by reference, we always need to use * (pointer) we have to modify the value
 func (P *Person) changeGenderByReference(gender string) {
 	P.gender = gender
+}
+
+// constructor for Person struct
+func NewPerson(name string, age int, gender string) *Person {
+	myPerson := Person{
+		name:   name,
+		age:    age,
+		gender: gender,
+	}
+	return &myPerson //returning memory location or we can say instance of that person struct
 }
 
 func main() {
@@ -36,4 +49,15 @@ func main() {
 	// Modify fields
 	p1.age = 24
 	fmt.Println("Updated age:", p1.age)
+
+	myperson := NewPerson("ok", 3, "female")
+	fmt.Println(myperson)
+
+	//other way to define and initialize struct (if we are going to use only once)
+	language := struct {
+		name string
+		code string
+	}{"hindi", "hin-IN"}
+
+	fmt.Println(language)
 }
