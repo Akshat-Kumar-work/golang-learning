@@ -32,6 +32,17 @@ func NewPerson(name string, age int, gender string) *Person {
 	return &myPerson //returning memory location or we can say instance of that person struct
 }
 
+// struct embeding or relations/inheritance
+type Car struct {
+	petrol int
+	color  string
+}
+
+type Maruti struct {
+	wheel int
+	Car   //inheritance
+}
+
 func main() {
 	// Create a struct value
 	p1 := Person{name: "Akshat", age: 23}
@@ -60,4 +71,8 @@ func main() {
 	}{"hindi", "hin-IN"}
 
 	fmt.Println(language)
+
+	//struct embedings (relations or inheritance)
+	marutiCar := Maruti{wheel: 4, Car: Car{color: "white", petrol: 3}}
+	fmt.Println(marutiCar)
 }
