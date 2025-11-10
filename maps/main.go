@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	// map is an data structure to store key value pair
 	//note : if key doesnot exist in map it return zero value
+	//maps are un-ordered data structure
 
 	//creating map
 	mp := map[string]int{"ok": 3}
