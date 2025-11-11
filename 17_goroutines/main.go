@@ -6,6 +6,7 @@ import (
 )
 
 func task(id int, wg *sync.WaitGroup) {
+	//defer keyword used to schedule a function call to be executed just before the surrounding function return
 	defer wg.Done() // mark this task as done when finished or decrement the goroutine count
 	fmt.Println("doing task", id)
 }
