@@ -16,10 +16,15 @@ func main() {
 
 	//sync.WaitGroup is a synchronization primitive in Go’s sync package
 	//used to wait for multiple goroutines to finish before continuing execution
+	// we use sync.WaitGroup only when we have multiple goroutine
+	// we can say it is like promise.all in js or asyncio.gather in python to execute multiple async operation concurrently/parallely
 	var wg sync.WaitGroup
 
 	for i := 0; i < 10; i++ {
 		wg.Add(1) //goroutine counter for keeping track how many goroutines are running
+		//we can say go is used to start concurrent task or parallel task if multicores
+		// it works as async same as in python and js
+
 		go task(i, &wg)
 	}
 
