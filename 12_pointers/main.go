@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 //pointers are the address of memory location of variables which we store
+//map,slice and channels we don't need to pass the pointers
+//for others we need to make them pass by reference
 
 func changeNumbyvalue(num int) {
 	num = 5
