@@ -15,6 +15,8 @@ type post struct {
 //Basically it prevent from race conditions like multiple thread try to update the views parallely
 //so by using mutex we lock the views field so that only 1 thread/goRoutine can update the field at a time
 
+//don't lock the whole function it will prevent the concurrency/parallelism only lock the particular logic where updation is happening
+
 func (p *post) incrementViewOnPost(wg *sync.WaitGroup) {
 	defer func() {
 		p.mu.Unlock()
