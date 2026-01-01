@@ -63,3 +63,11 @@ func main() {
 	//.Sleep(time.Second * 2)
 
 }
+
+//for concurrency control for channels use select
+// select {
+// case msg := <-ch:
+//     handle(msg)
+// case <-ctx.Done():
+//     return
+// }
