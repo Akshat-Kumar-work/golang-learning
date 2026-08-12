@@ -13,6 +13,7 @@ func main() {
 	}
 
 	//type switch
+	//it does not work with wrapped errors
 	switch v := i.(type) {
 	case int:
 		fmt.Print("var is int")
